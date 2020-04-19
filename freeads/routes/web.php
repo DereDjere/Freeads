@@ -27,6 +27,7 @@ Route::get('/profil', 'HomeController@update')->name('update');
 Route::post('/profil', 'Auth\UpdateController@Updatelist')->name('update');
 Route::resource('myannonce', 'MyAnnonceController');
 Route::resource('annonce', 'AnnonceController');
+Route::resource('message', 'MessageController');
 
 /* Route::get('/home/profil/myposting', 'AnnonceController@index')->name('myposting'); */
 /* Route::get('/home/annonces', 'AnnonceController@index')->name('annonce'); */

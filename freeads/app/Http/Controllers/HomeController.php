@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Annonce;
 use App\Image;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Search;
 
 class HomeController extends Controller
 {
@@ -23,10 +24,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $annonce = Annonce::all();
-       
+        /* dump($request); */
+        if(isset($request['search']))
+        {
+            $annonce = Search::SearchAnnonce();
+           dump($annonce);
+        }
+        else
+        {
+            $annonce = Annonce::all();
+        }
         return view('home', ['all_annonce' => $annonce]);
     }
     public function update()
